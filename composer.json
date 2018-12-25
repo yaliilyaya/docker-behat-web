@@ -1,0 +1,12 @@
+{
+  "name": "yaliilyaya/docker-behat-web",
+  "description": "docker container with behat + php-fpm7.1 + facebook web driver",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "yaliilyaya",
+      "email": "yaliilyaya@mail.ru"
+    }
+  ]
+}
