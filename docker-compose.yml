@@ -1,0 +1,10 @@
+version: '3'
+services:
+  php:
+      image: php:7.1-fpm
+      volumes:
+          #- composer:/var/www/composer
+          - test:/var/www/behat
+volumes:
+  #composer:
+  test:
