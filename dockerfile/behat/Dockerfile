@@ -10,7 +10,7 @@
 
 FROM ubuntu:16.04
 
-RUN apt-get update && apt-get install -y wget git unzip openssh-server php php-dev php-pear
+RUN apt-get update && apt-get install -y wget git unzip openssh-server php php-dev php-pear php-mbstring
 RUN mkdir /var/run/sshd
 RUN echo 'root:developer' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
@@ -34,6 +34,9 @@ ADD ./php.ini /usr/local/etc/php/php.ini
 #composer install
 RUN wget https://getcomposer.org/installer -O - -q \
     | php -- --install-dir=/bin --filename=composer --quiet
+
+RUN mkdir -p /var/www/composer
+ADD ./composer.json /var/www/composer/composer.json
 
 WORKDIR /var/www/behat
 

@@ -6,7 +6,6 @@ services:
     ports:
       - 22 #for test - "20022:22"
     volumes:
-      - ./composer.json:/var/www/composer/composer.json
       - test:/var/www/behat
     environment:
       XDEBUG_CONFIG: "remote_host=192.168.220.1 remote_enable=1"
