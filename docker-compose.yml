@@ -1,10 +1,16 @@
 version: '3'
 services:
-  php:
-      image: php:7.1-fpm
-      volumes:
-          #- composer:/var/www/composer
-          - test:/var/www/behat
+  behat:
+    build:
+      context: dockerfile/behat
+    ports:
+      - 22 #for test - "20022:22"
+    volumes:
+      - ./composer.json:/var/www/composer/composer.json
+      - test:/var/www/behat
+    environment:
+      XDEBUG_CONFIG: "remote_host=192.168.220.1 remote_enable=1"
+      PHP_IDE_CONFIG: "serverName=Docker"
 volumes:
   #composer:
   test:
